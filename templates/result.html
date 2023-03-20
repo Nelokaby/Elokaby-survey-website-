@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='Logo.jpg') }}" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main(1).css') }}">
+    <title>Elokaby</title>
+    <style>
+        @font-face {
+            font-family: urw;
+            src: url("static/fonts/alfont_com_URWGeometricArabic-Regular.ttf") ;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav style='height: 250px; width: 100%'>
+        <img src="{{ url_for('static', filename='Logo.jpg') }}" alt="logo" style='width: 300px; height: 70% ; margin-right: 30px; margin-top: 30px' />
+    </nav>
+    <div class='title'>
+        <h1 style=' font-size: 50px; margin: auto; font-weight: 900'>بيانات العميل</h1>
+    </div>
+
+    <div class="container">
+        <div class="result">Your Rate {{rate}}/15</div>
+        {% for question, choice in questions.items() %}
+            {% if choice!=" " %}
+                <div class='label'>
+                    {{question}}
+                </div>
+                <div class="text">
+                    {{choice}}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <!--
+        {% for question, choices in questions.items() %}
+            {% if choices!=" " %}
+                <div class='label'>
+                    {{question}}
+                </div>
+                {% if choices %}
+                    {% for choice in choices %}
+                        <div class="text">
+                            {{choice}}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="text">
+                        {{choices}}
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+-->
+
+        <!--
+        <div class='label'>
+            الاسم
+        </div>
+        <div class="text">any</div>
+        <div class='label'>
+            السن
+        </div>
+        <div class="text">any</div>
+        <div class='label'>
+            معدل الوزن مقارنة بالطول
+        </div>
+        <div class="text">any</div>
+        <div class='label'>
+            مهدل الحرق
+        </div>
+        <div class="text">any</div>
+        <div class='label'>
+            هل يوجد أمراض
+        </div>
+        <div class="text">any</div>
+        <div class='label'>
+            مشكلة الوجه
+        </div>
+        <div class="text">any</div>
+        <div class='label'>
+            هالات
+        </div>
+        <div class="text">any</div>
+        <div class='label'>
+            مشكلة المناطق الحساسة
+        </div>
+        <div class="text">any</div>
+        <div class='label'>
+            مشكلة المناطق الغير حساسة
+        </div>
+        <div class="text">any</div>
+        <div class='label'>
+            مشاكل أخري
+        </div>
+        <div class="text">any</div>
+        <div class="res">
+
+        </div>
+
+-->
+        <a class='button' href="./result.html">
+            Print
+        </a>
+    </div>
+    <footer>
+        <div style=' height: 150px; width: 100% ; background-color: #F0EEED'>
+        </div>
+        <div style=' height: 100px; width: 100% ; background-color: black'>
+        </div>
+    </footer>
+
+    <script type="text/vbscript">
+        Sub Print()
+            OLECMDID_PRINT = 6
+            OLECMDEXECOPT_DONTPROMPTUSER = 2
+            OLECMDEXECOPT_PROMPTUSER = 1
+            call WB.ExecWB(OLECMDID_PRINT, OLECMDEXECOPT_DONTPROMPTUSER,1)
+        End Sub
+        document.write "<object ID='WB' WIDTH=0 HEIGHT=0 CLASSID='CLSID:8856F961-340A-11D0-A96B-00C04FD705A2'></object>"
+        </script>
+        
+        <script type="text/javascript"> 
+        window.onload=function(){self.print();} 
+        </script>
+</body>
+
+</html>
