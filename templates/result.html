@@ -11,7 +11,7 @@
     <style>
         @font-face {
             font-family: urw;
-            src: url("static/fonts/alfont_com_URWGeometricArabic-Regular.ttf") ;
+            src: url("static/fonts/alfont_com_URWGeometricArabic-Regular.ttf");
         }
     </style>
 </head>
@@ -19,7 +19,8 @@
 <body>
 
     <nav style='height: 250px; width: 100%'>
-        <img src="{{ url_for('static', filename='Logo.jpg') }}" alt="logo" style='width: 300px; height: 70% ; margin-right: 30px; margin-top: 30px' />
+        <img src="{{ url_for('static', filename='Logo.jpg') }}" alt="logo"
+            style='width: 300px; height: 70% ; margin-right: 30px; margin-top: 30px' />
     </nav>
     <div class='title'>
         <h1 style=' font-size: 50px; margin: auto; font-weight: 900'>بيانات العميل</h1>
@@ -28,14 +29,16 @@
     <div class="container">
         <div class="result">Your Rate {{rate}}/15</div>
         {% for question, choice in questions.items() %}
-            {% if choice!=" " %}
-                <div class='label'>
-                    {{question}}
-                </div>
-                <div class="text">
-                    {{choice}}
-                </div>
-            {% endif %}
+        {% if choice!=" " %}
+        <div class="res-container">
+            <div class='label'>
+                {{question}}
+            </div>
+            <div class="text">
+                {{choice}}
+            </div>
+        </div>
+        {% endif %}
         {% endfor %}
         <!--
         {% for question, choices in questions.items() %}
@@ -124,10 +127,10 @@
         End Sub
         document.write "<object ID='WB' WIDTH=0 HEIGHT=0 CLASSID='CLSID:8856F961-340A-11D0-A96B-00C04FD705A2'></object>"
         </script>
-        
-        <script type="text/javascript"> 
-        window.onload=function(){self.print();} 
-        </script>
+
+    <script type="text/javascript">
+        window.onload = function () { self.print(); } 
+    </script>
 </body>
 
 </html>

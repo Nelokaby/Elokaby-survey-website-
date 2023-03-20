@@ -131,3 +131,9 @@ a {
   height: 150px;
   display: flex;
 }
+
+.res-container {
+  display: flex;
+  align-items: center;
+  margin: 30px 20px;
+}
