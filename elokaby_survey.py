@@ -23,7 +23,8 @@ def survey():
     questions = questions_data()
     return render_template('index.html',questions=questions)
 
-@app.route('/submit', methods=['post'])
+@app.route('/submit', methods=["Get",'post'])
+#@app.route("/result ", methods= ["Get","Post"])
 def result():
     questions=questions_data()
     data= request.form.to_dict("utf-8")
@@ -80,6 +81,6 @@ def result():
     return render_template("result.html", questions=data,rate=rate)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=9000)
 
 
