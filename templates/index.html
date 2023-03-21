@@ -6,20 +6,20 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='Logo.jpg') }}" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='main(1).css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     <title>Elokaby</title>
     <style>
         @font-face {
             font-family: urw;
-            src: url("static/fonts/alfont_com_URWGeometricArabic-Regular.ttf") ;
+            src: url("static/fonts/alfont_com_URWGeometricArabic-Regular.ttf");
         }
     </style>
 </head>
 
 <body>
 
-    <nav style='height: 250px; width: 100%'>
-        <img src="{{ url_for('static', filename='Logo.jpg') }}" alt="logo" style='width: 300px; height: 70% ; margin-right: 30px ; margin-top: 30px'  />
+    <nav style='height: 170px; width: 100%'>
+        <img src="{{ url_for('static', filename='Logo.jpg') }}" alt="logo" class="logo" />
     </nav>
     <div class='title'>
         <h1 style=' font-size: 50px; margin: auto; font-weight: 900'>قيمي جمالك</h1>
@@ -30,35 +30,35 @@
     </h3>
     <form class="container" action="/submit" method="post" target="_blank">
         {% for question, choices in questions.items() %}
-            <div class='label'>
-                {{ question }}
-            </div>
+        <div class='label'>
+            {{ question }}
+        </div>
 
-            {% if choices %}
-                <div class="checkbox-container">
-                {% if (question=="عايزة تتخني ولا تخسي؟" or question=="مشكلة الشعر") %}
-                    {% for choice in choices %}
-                    <div>
-                        <input class="checkbox" type="radio" name="{{ question }}" value="{{ choice }}"/>
-                        <label class="text">{{choice}}</label>
-                    </div>
-                    {% endfor %}
-                {% else %}
-                    {% for choice in choices %}
-                        <div>
-                            <input class="checkbox" type="checkbox" name="{{ question }}" value="{{ choice }}"  />
-                            <label class="text">{{choice}}</label>
-                        </div>
-                    {% endfor %}
-                    
-                {% endif %}
-                </div>
+        {% if choices %}
+        <div class="checkbox-container">
+            {% if (question=="عايزة تتخني ولا تخسي؟" or question=="مشكلة الشعر") %}
+            {% for choice in choices %}
+            <div>
+                <input class="checkbox" type="radio" name="{{ question }}" value="{{ choice }}" />
+                <label class="text">{{choice}}</label>
+            </div>
+            {% endfor %}
             {% else %}
-                <input type="text" class='input' name="{{ question }}" />
+            {% for choice in choices %}
+            <div>
+                <input class="checkbox" type="checkbox" name="{{ question }}" value="{{ choice }}" />
+                <label class="text">{{choice}}</label>
+            </div>
+            {% endfor %}
+
             {% endif %}
+        </div>
+        {% else %}
+        <input type="text" class='input' name="{{ question }}" />
+        {% endif %}
         {% endfor %}
 
-<!--
+        <!--
         <div class='label'>
             الاسم
         </div>
@@ -205,7 +205,7 @@
         </div>
     -->
 
-        <button class='button' type="submit" value="submit" >
+        <button class='button' type="submit" value="submit">
             SUBMIT
         </button>
 

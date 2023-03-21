@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='Logo.jpg') }}" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='main(1).css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     <title>Elokaby</title>
     <style>
         @font-face {
@@ -18,9 +18,8 @@
 
 <body>
 
-    <nav style='height: 250px; width: 100%'>
-        <img src="{{ url_for('static', filename='Logo.jpg') }}" alt="logo"
-            style='width: 300px; height: 70% ; margin-right: 30px; margin-top: 30px' />
+    <nav style='height: 170px; width: 100%'>
+        <img src="{{ url_for('static', filename='Logo.jpg') }}" alt="logo" class="logo" />
     </nav>
     <div class='title'>
         <h1 style=' font-size: 50px; margin: auto; font-weight: 900'>بيانات العميل</h1>
@@ -107,7 +106,7 @@
         </div>
 
 -->
-        <a class='button' href="./result.html">
+        <a class='button' id="print" href="./result.html">
             Print
         </a>
     </div>
@@ -129,7 +128,7 @@
         </script>
 
     <script type="text/javascript">
-        window.onload = function () { self.print(); } 
+        document.getElementById('print').onclick = function () { self.print(); } 
     </script>
 </body>
 
