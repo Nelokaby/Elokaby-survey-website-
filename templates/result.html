@@ -28,16 +28,34 @@
     <div class="container">
         <div class="result">Your Rate {{rate}}/15</div>
         {% for question, choice in questions.items() %}
-        {% if choice!=" " %}
-        <div class="res-container">
-            <div class='label'>
-                {{question}}
-            </div>
-            <div class="text">
-                {{choice}}
-            </div>
-        </div>
-        {% endif %}
+
+            {% if choice is mapping %}
+                <div class="res-container">
+                    <div class='label'>
+                        {{question}}
+                    </div>
+                </div>
+                {% for item,txt in choice.items() %}
+                    <div class="res-container">
+                        <div class='label2'>
+                            {{item}}
+                        </div>
+                        <div class="text">
+                            {{txt}}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="res-container">
+                    <div class='label'>
+                        {{question}}
+                    </div>
+                    <div class="text">
+                        {{choice}}
+                    </div>
+                </div>
+            {% endif %}
+            
         {% endfor %}
         <!--
         {% for question, choices in questions.items() %}
