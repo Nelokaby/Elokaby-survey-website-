@@ -28,103 +28,38 @@
     <div class="container">
         <div class="result">Your Rate {{rate}}/15</div>
         {% for question, choice in questions.items() %}
-
-            {% if choice is mapping %}
-                <div class="res-container">
-                    <div class='label'>
-                        {{question}}
-                    </div>
-                </div>
-                {% for item,txt in choice.items() %}
-                    <div class="res-container">
-                        <div class='label2'>
-                            {{item}}
-                        </div>
-                        <div class="text">
-                            {{txt}}
-                        </div>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <div class="res-container">
-                    <div class='label'>
-                        {{question}}
-                    </div>
-                    <div class="text">
-                        {{choice}}
-                    </div>
-                </div>
-            {% endif %}
-            
-        {% endfor %}
-        <!--
-        {% for question, choices in questions.items() %}
-            {% if choices!=" " %}
-                <div class='label'>
+        {% if choice is mapping %}
+        <div style="border: 1px solid black; border-radius: 40px; margin-top: 30px; padding-left: 20px;">
+            <div class="res-container">
+                <div class='question'>
                     {{question}}
                 </div>
-                {% if choices %}
-                    {% for choice in choices %}
-                        <div class="text">
-                            {{choice}}
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <div class="text">
-                        {{choices}}
-                    </div>
-                {% endif %}
-            {% endif %}
+                <div class="text"></div>
+            </div>
+            {% for item,txt in choice.items() %}
+            <div class="res-container">
+                <div class='label'>
+                    {{item}}
+                </div>
+                <div class="text">
+                    {{txt}}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="res-container">
+            <div class='question'>
+                {{question}}
+            </div>
+            <div class="text">
+                {{choice}}
+            </div>
+        </div>
+        {% endif %}
+
         {% endfor %}
--->
-
-        <!--
-        <div class='label'>
-            الاسم
-        </div>
-        <div class="text">any</div>
-        <div class='label'>
-            السن
-        </div>
-        <div class="text">any</div>
-        <div class='label'>
-            معدل الوزن مقارنة بالطول
-        </div>
-        <div class="text">any</div>
-        <div class='label'>
-            مهدل الحرق
-        </div>
-        <div class="text">any</div>
-        <div class='label'>
-            هل يوجد أمراض
-        </div>
-        <div class="text">any</div>
-        <div class='label'>
-            مشكلة الوجه
-        </div>
-        <div class="text">any</div>
-        <div class='label'>
-            هالات
-        </div>
-        <div class="text">any</div>
-        <div class='label'>
-            مشكلة المناطق الحساسة
-        </div>
-        <div class="text">any</div>
-        <div class='label'>
-            مشكلة المناطق الغير حساسة
-        </div>
-        <div class="text">any</div>
-        <div class='label'>
-            مشاكل أخري
-        </div>
-        <div class="text">any</div>
-        <div class="res">
-
-        </div>
-
--->
-        <a class='button' id="print" >
+        <a class='button' id="print">
             Print
         </a>
     </div>

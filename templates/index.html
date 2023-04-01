@@ -30,180 +30,33 @@
     </h3>
     <form class="container" action="/submit" method="post" target="_blank">
         {% for question, choices in questions.items() %}
-            <div class='label'>
-                {{ question }}
-            </div>
+        <div class='question'>
+            {{ question }}
+        </div>
 
-            {% if choices %}
-            <div class="checkbox-container">
-                {% if (question=="مشكلة الوزن" ) %}
-                    {% for choice in choices %}
-                        <div>
-                            <input class="checkbox" type="radio" name="{{ question }}" value="{{ choice }}" />
-                            <label class="text">{{choice}}</label>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    {% for choice in choices %}
-                        <div>
-                            <input class="checkbox" type="checkbox" name="{{ question }}" value="{{ choice }}" />
-                            <label class="text">{{choice}}</label>
-                        </div>
-                    {% endfor %}
-
-                {% endif %}
+        {% if choices %}
+        <div class="checkbox-container">
+            {% if (question=="مشكلة الوزن" ) %}
+            {% for choice in choices %}
+            <div>
+                <input class="checkbox" type="radio" name="{{ question }}" value="{{ choice }}" />
+                <label class="text">{{choice}}</label>
             </div>
+            {% endfor %}
             {% else %}
-                <input type="text" class='input' name="{{ question }}" />
+            {% for choice in choices %}
+            <div>
+                <input class="checkbox" type="checkbox" name="{{ question }}" value="{{ choice }}" />
+                <label class="text">{{choice}}</label>
+            </div>
+            {% endfor %}
+
             {% endif %}
+        </div>
+        {% else %}
+        <input type="text" class='input' name="{{ question }}" />
+        {% endif %}
         {% endfor %}
-
-        <!--
-        <div class='label'>
-            الاسم
-        </div>
-        <input type="text" class='input' />
-        <div class='label'>
-            السن
-        </div>
-        <input type="text" class='input' />
-        <div class='label'>
-            معدل الوزن مقارنة بالطول
-        </div>
-        <input type="text" class='input' />
-        <div class='label'>
-            معدل الحرق
-        </div>
-        <input type="text" class='input' />
-        <div class='label'>
-            هل يوجد أمراض
-        </div>
-        <div class="checkbox-container">
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-        </div>
-
-
-        <div class='label'>
-            مشكلة الوجه
-        </div>
-        <div class="checkbox-container">
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-        </div>
-        <div class='label'>
-            هالات
-        </div>
-        <div class="checkbox-container">
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-        </div>
-        <div class='label'>
-            مشكلة المناطق الحساسة
-        </div>
-        <div class="checkbox-container">
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-        </div>
-        <div class='label'>
-            مشكلة المناطق الغير حساسة
-        </div>
-        <div class="checkbox-container">
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-        </div>
-        <div class='label'>
-            مشاكل أخري
-        </div>
-        <div class="checkbox-container">
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-            <div>
-                <input class="checkbox" type="checkbox" />
-                <label class="text">مشكلة</label>
-            </div>
-        </div>
-    -->
 
         <button class='button' type="submit" value="submit">
             SUBMIT
