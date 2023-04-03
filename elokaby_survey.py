@@ -104,6 +104,16 @@ def result():
         if (question in opposite_data) :
             if type(answer)==list and question == 'هل يوجد أمراض؟': 
                 data[question]=' - '.join(map(str, answer))
+            elif type(answer)==list and question == "مشكلة المناطق الغير حساسة":
+                if "لا يوجد" not in answer:
+                    temp=" - ".join(map(str,answer))
+                    prob[temp]=answers[answer[0]]
+                    for item in answer:
+                        i=questions[question].index(item)
+                        rate=rate+dict_rate[question][i]
+                else:
+                    prob["لا يوجد"]=answers["لا يوجد"]
+                data[question]=prob
             elif type(answer)==list :
                 for item in answer:
                     prob[item]=answers[item]
