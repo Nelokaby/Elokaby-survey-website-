@@ -105,7 +105,7 @@ def result():
             if type(answer)==list and question == 'هل يوجد أمراض؟': 
                 data[question]=' - '.join(map(str, answer))
             elif type(answer)==list and question == "مشكلة المناطق الغير حساسة":
-                if "لا يوجد" not in answer:
+                if "لا يوجد" not in answer and len(answer)>0:
                     temp=" - ".join(map(str,answer))
                     prob[temp]=answers[answer[0]]
                     for item in answer:
